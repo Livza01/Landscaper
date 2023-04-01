@@ -24,8 +24,6 @@ function openPage(pageName, elmnt, color) {
   
   
   
-  
-  
   let slideIndex = 1;
   showSlides(slideIndex);
   
@@ -42,8 +40,7 @@ function openPage(pageName, elmnt, color) {
   function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("demo");
-    let captionText = document.getElementById("caption");
+    let dots = document.getElementsByClassName("dot");
     if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length}
     for (i = 0; i < slides.length; i++) {
@@ -54,7 +51,6 @@ function openPage(pageName, elmnt, color) {
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
-    captionText.innerHTML = dots[slideIndex-1].alt;
   }
   
   
@@ -74,3 +70,13 @@ function openPage(pageName, elmnt, color) {
     }
   }
   
+
+  // Hide all elements with class="containerTab", except for the one that matches the clickable grid column
+function openTab(tabName) {
+  var i, x;
+  x = document.getElementsByClassName("containerTab");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
+}

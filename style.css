@@ -10,37 +10,61 @@ html {
   box-sizing: border-box;
 }
 
-/* Position the image container (needed to position the left and right arrows) */
-.container {
+body, html {
+  height: 100%;
+}
+
+/* The hero image */
+.hero-image {
+/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("bg11.jpg");
+
+/* Set a specific height */
+height: 50%;
+
+/* Position and center the image to scale nicely on all screens */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+text-align: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
   position: relative;
+  margin: auto;
 }
 
 /* Hide the images by default */
 .mySlides {
   display: none;
-
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
 }
 
 /* Next & previous buttons */
-.prev,
-.next {
+.prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 40%;
+  top: 50%;
   width: auto;
+  margin-top: -22px;
   padding: 16px;
-  margin-top: -50px;
   color: white;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
+  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  -webkit-user-select: none;
 }
 
 /* Position the "next button" to the right */
@@ -50,9 +74,19 @@ html {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
 }
 
 /* Number text (1/3 etc) */
@@ -64,34 +98,31 @@ html {
   top: 0;
 }
 
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.active, .dot:hover {
+  background-color: #717171;
 }
 
-/* Six columns side by side */
-.column {
-  float: left;
-  width: 16.66%;
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
 /* Style tab links */
@@ -140,7 +171,7 @@ html {
 }
 
 #Contact {
-  background-color: blue;
+  background-color: cornflowerblue;
 }
 
 #About {
@@ -199,7 +230,7 @@ html {
 /*contact*/
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(25, 119, 30, 0.945);
+  /* box-shadow: 0 2px 2px 0 crimson; */
   max-width: 300px;
   margin: auto;
   text-align: center;
@@ -208,7 +239,7 @@ html {
 
 .card h1 {
   font-size: 20px;
-  color: rgb(0, 0, 179);
+  color: rgb(182, 127, 55);
   font-family: cursive;
 }
 
@@ -223,7 +254,7 @@ button {
   display: inline-block;
   padding: 8px;
   color: white;
-  background-color: green;
+  background-color: rgba(90, 39, 2, 0.808);
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -323,6 +354,7 @@ a:hover {
   }
 }
 
+
 @media only screen and (min-width: 600px) 
 {
   #Home img{
@@ -342,4 +374,148 @@ a:hover {
   .explore{
     display: none;
   }
+}
+
+@media only screen and (max-width: 600px) {
+  #Services h2{
+    font-size: medium;
+  }
+  #Services h3{
+    font-size: medium;
+  }
+  #Contact h3{
+font-size: medium;
+  }
+}
+
+
+/* Container holding the image and the text */
+.container {
+  position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  color: white;
+  background-color: #474e5d;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+  /* Container holding the image and the text */
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.footer-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+
+/* The grid: Three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+  text-align: center;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 1%;
+}
+
+.containerTab {
+  padding: 20px;
+  color: white;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  float: right;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
 }
