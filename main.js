@@ -80,3 +80,10 @@ function openTab(tabName) {
   }
   document.getElementById(tabName).style.display = "block";
 }
+
+/*------------------
+        Video Popup
+    --------------------*/
+    $('.video-popup').magnificPopup({
+      type: 'iframe'
+  });
